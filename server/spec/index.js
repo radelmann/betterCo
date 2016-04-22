@@ -22,18 +22,10 @@ describe("better company api - Server - REST API Routes", function() {
     it('responds with a 200 (successful) and returned json object of new comment post', function(done) {
 
       var data = {
-          message: 'this is a test post',
-          userName: 'spec test user'
-        };
+        message: 'this is a test post',
+        userName: 'spec test user'
+      };
 
-
-    //     {
-    //   "_id": "571a6444939171020690c98c",
-    //   "message": "this is a test post",
-    //   "userName": "radelmann",
-    //   "__v": 0
-    // }
-    
       request(app)
         .post('/api/post/')
         .send(data)

@@ -1,4 +1,4 @@
-var api = require('./controllers/api.js');
+var api = require('./controllers/comment.js');
 
 module.exports = function(app) {
   app.get('/api/get', api.get);

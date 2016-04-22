@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 // define the schema for our user model
-var postSchema = mongoose.Schema({
+var commentSchema = mongoose.Schema({
   message: {
     type: String
   },
@@ -11,5 +11,5 @@ var postSchema = mongoose.Schema({
 });
 
 // create the model for users and expose it to our app
-var Post = mongoose.model('Post', postSchema);
-module.exports = Post;
+var Comment = mongoose.model('Comment', commentSchema);
+module.exports = Comment;

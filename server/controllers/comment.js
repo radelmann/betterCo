@@ -1,27 +1,27 @@
-var Post = require('../models/post.js');
+var Comment = require('../models/comment.js');
 
 module.exports = {
   get: function(req, res, next) {
 
-    Post.find()
-      .then(function(posts) {
-        if (!posts) {
+    Comment.find()
+      .then(function(comments) {
+        if (!comments) {
           res.status(200);
           res.json([]);
         }
 
         res.status(200);
-        res.json({'data':posts});
+        res.json({'data':comments});
       });
   },
 
   post: function(req, res, next) {
-    var post = new Post({
+    var comment = new Comment({
       message :  req.body.message,
       userName : req.body.userName
     });
 
-    post.save(function(err, saved) {
+    comment.save(function(err, saved) {
         if (err) {
           next(err);
         }
