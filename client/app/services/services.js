@@ -15,8 +15,21 @@ angular.module('betterco.services', [])
       });
   };
 
+  var post = function(comment) {
+    return $http({
+        method: 'POST',
+        url: '/api/post/',
+        data: JSON.stringify(comment)
+      })
+      .then(function(resp) {
+        return resp.data;
+      }, function(err) {
+        return 'error';
+      });
+  }
 
   return {
-    getAll: getAll
+    getAll: getAll,
+    post: post
   };
 }]);

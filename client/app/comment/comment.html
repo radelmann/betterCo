@@ -10,4 +10,17 @@
         </div>
     </div>
   </div>
+
+
+  <form name='commentForm' ng-submit="submitComment()">
+        
+    <label>User Name:</label>
+    <input class="form-control" id='userName' type="text" ng-model="data.userName" placeholder="user name" required>
+    
+    <label>Message:</label>
+    <input class="form-control" id='message' ng-model="data.message" placeholder="message" required>
+
+    <button type="submit" value="Submit" class='btn btn-primary'>Submit</button>
+
+  </form>
 </div>
