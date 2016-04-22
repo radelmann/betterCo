@@ -1,0 +1,11 @@
+{
+  "name": "betterCompany",
+  "version": "1.0.0",
+  "description": "onsite commenting app",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "radelmann",
+  "license": "MIT"
+}
