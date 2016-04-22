@@ -11,7 +11,7 @@ angular.module('betterco.comment', [])
 
     $scope.submitComment = function() {
       var comment = {};
-      comment.userName = $scope.data.userName;
+      comment.userName = "radelmann";
       comment.message = $scope.data.message;
 
       COMMENT.post(comment).then(function(data) {

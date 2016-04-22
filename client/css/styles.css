@@ -1,4 +1,15 @@
+@font-face {
+    font-family: bc-reg;
+    src: url(../assets/quicksand/Quicksand-Regular.otf);
+}
+
+@font-face {
+    font-family: bc-bold;
+    src: url(../assets/quicksand/Quicksand-Bold.otf);
+}
+
 body {
+  font-family: bc-reg;
   background-image: url('../assets/img_background@2x.jpg');
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -9,13 +20,17 @@ body {
   background-position: center;
 }
 
+.font-bold {
+  font-family: bc-bold;
+}
+
 .container {
   width:500px;
 }
 
 .items {
   margin:5px;
-  opacity: .8;
+  opacity: .9;
 }
 
 .item {
@@ -54,4 +69,5 @@ form {
   width:154px;
   height:154px;
   margin:auto;
+  bottom:100;
 }

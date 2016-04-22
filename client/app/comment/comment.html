@@ -4,7 +4,7 @@
     <div class="items">      
         <div class="item" ng-repeat='item in data.items'>
 
-          <div><b>{{ item.userName }}</b></div>
+          <div class="font-bold">{{ item.userName }}</div>
           <div>{{ item.message }}</div>
         
         </div>
@@ -17,8 +17,6 @@
   <div>
     <form name='commentForm' ng-submit="submitComment()" ng-show='commenting'>
           
-      <input class="form-control" id='userName' type="text" ng-model="data.userName" placeholder="user name" required>
-      
       <textarea class="form-control" id='message' ng-model="data.message" rows=6 placeholder="what do you want to say?" required></textarea>
 
       <button type="submit" value="Submit" class='btn btn-primary'>Post</button>
