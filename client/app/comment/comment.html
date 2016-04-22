@@ -9,18 +9,20 @@
         
         </div>
     </div>
+
+    <div class="compose-button" ng-click="showSubmitForm()" ng-hide='commenting'></div>      
   </div>
 
+  
+  <div>
+    <form name='commentForm' ng-submit="submitComment()" ng-show='commenting'>
+          
+      <input class="form-control" id='userName' type="text" ng-model="data.userName" placeholder="user name" required>
+      
+      <textarea class="form-control" id='message' ng-model="data.message" rows=6 placeholder="what do you want to say?" required></textarea>
 
-  <form name='commentForm' ng-submit="submitComment()">
-        
-    <label>User Name:</label>
-    <input class="form-control" id='userName' type="text" ng-model="data.userName" placeholder="user name" required>
-    
-    <label>Message:</label>
-    <input class="form-control" id='message' ng-model="data.message" placeholder="message" required>
+      <button type="submit" value="Submit" class='btn btn-primary'>Post</button>
 
-    <button type="submit" value="Submit" class='btn btn-primary'>Submit</button>
-
-  </form>
+    </form>
+  </div>
 </div>
