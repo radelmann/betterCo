@@ -43,8 +43,9 @@ body {
 }
 
 form {
-  margin:5px;
+  margin-top:5px;
   background-color: transparent;
+  width:490px;
 }
 
 .form-control {

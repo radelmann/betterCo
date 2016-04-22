@@ -1,5 +1,5 @@
 angular.module('betterco.comment', [])
-  .controller('commentController', ['$scope','COMMENT', function($scope, COMMENT) {
+  .controller('commentController', ['$scope', 'COMMENT', function($scope, COMMENT) {
     $scope.data = {};
     $scope.data.items = [];
 
@@ -12,7 +12,7 @@ angular.module('betterco.comment', [])
     $scope.submitComment = function() {
       var comment = {};
       comment.userName = "radelmann";
-      comment.message = $scope.data.message;
+      comment.message = $sanitize($scope.data.message);
 
       COMMENT.post(comment).then(function(data) {
         $scope.data.items.push(data); 
