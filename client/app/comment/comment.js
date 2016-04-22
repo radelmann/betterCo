@@ -12,7 +12,7 @@ angular.module('betterco.comment', [])
     $scope.submitComment = function() {
       var comment = {};
       comment.userName = "radelmann";
-      comment.message = $sanitize($scope.data.message);
+      comment.message = $scope.data.message;
 
       COMMENT.post(comment).then(function(data) {
         $scope.data.items.push(data); 
