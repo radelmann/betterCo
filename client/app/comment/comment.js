@@ -17,6 +17,7 @@ angular.module('betterco.comment', [])
       COMMENT.post(comment).then(function(data) {
         $scope.data.items.push(data); 
         $scope.commenting = false;
+        $scope.data.message = "";        
       });
     };
 
