@@ -11,12 +11,8 @@ module.exports = {
         }
 
         res.status(200);
-
-        res.json({
-          data: posts
-        });
+        res.json({'data':posts});
       });
-
   },
 
   post: function(req, res, next) {
