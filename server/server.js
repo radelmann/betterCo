@@ -4,6 +4,9 @@ var port = 3000;
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/betterco');
+
 //setup middleware
 app.use(morgan('dev'));
 app.use(bodyParser.json());
