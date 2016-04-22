@@ -13,7 +13,6 @@ angular.module('betterco.comment', [])
       comment.message = $scope.data.message;
 
       COMMENT.post(comment).then(function(data) {
-        console.log(data);
         $scope.data.items.push(data); 
       });
     };

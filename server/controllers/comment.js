@@ -16,6 +16,8 @@ module.exports = {
   },
 
   post: function(req, res, next) {
+    //santize user input
+    
     var comment = new Comment({
       message :  req.body.message,
       userName : req.body.userName
