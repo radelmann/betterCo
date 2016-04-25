@@ -1,8 +1,9 @@
-angular.module('betterco', [
+var app = angular.module('betterco', [
     'betterco.services',
     'betterco.comment',
     'betterco.auth',
-    'ngRoute'
+    'ngRoute',
+    'angularModalService'
   ])
   .config(function($routeProvider, $httpProvider) {
     $routeProvider
@@ -41,3 +42,12 @@ angular.module('betterco', [
       }
     });
   });
+
+app.controller('ModalController', function($scope, close) {
+  $scope.message = '';
+  $scope.close = function(result) {
+    if (result === 'post') {
+      close($scope.message, 500);
+    }
+  };
+});

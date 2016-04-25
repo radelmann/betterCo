@@ -1,36 +1,44 @@
 angular.module('betterco.comment', [])
-  .controller('CommentController', ['$scope', 'Comment', 'Auth', '$location', function($scope, Comment, Auth, $location) {
+  .controller('CommentController', ['$scope', 'ModalService', 'Comment', 'Auth', '$location', function($scope, ModalService, Comment, Auth, $location) {
     if (Auth.isAuth()) {
       $scope.data = {};
       $scope.data.items = [];
-
-      $scope.commenting = false;
 
       Comment.getAll().then(function(data) {
         $scope.data.items = data;
       });
 
-      $scope.submitComment = function() {
+      $scope.submitComment = function(message) {
         var commentData = {};
-        commentData.userName = "radelmann";
-        commentData.message = $scope.data.message;
+        commentData.userName = "radelmann";//to do get from local storage
+        commentData.message = message;
 
         Comment.post(commentData).then(function(data) {
-          $scope.data.items.push(data); 
+          $scope.data.items.push(data);
           $scope.commenting = false;
-          $scope.data.message = "";        
+          $scope.data.message = "";
         });
       };
 
       $scope.showSubmitForm = function() {
-        $scope.commenting = true;
+        ModalService.showModal({
+          templateUrl: "app/comment/commentForm.html",
+          controller: "ModalController"
+        }).then(function(modal) {
+
+          modal.element.modal();
+
+          modal.close.then(function(result) {
+            $scope.submitComment(result);
+          });
+        });
       }
 
       $scope.signOut = function() {
         Auth.signOut();
-      }            
+      }
 
     } else {
-      $location.path('/#/login');  
+      $location.path('/#/login');
     }
   }]);

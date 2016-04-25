@@ -17,6 +17,8 @@
   ],
   "dependencies": {
     "angular": "~1.5.5",
-    "angular-route": "~1.5.5"
+    "angular-route": "~1.5.5",
+    "angular-modal-service": "~0.9.10",
+    "jquery": "~2.2.3"
   }
 }
