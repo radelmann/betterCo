@@ -1,12 +1,12 @@
 
 angular.module('betterco.services', [])
 
-.factory('COMMENT', ['$http', function($http) {
+.factory('Comment', ['$http', function($http) {
 
   var getAll = function() {
     return $http({
         method: 'GET',
-        url: '/api/get/'
+        url: '/comment/'
       })
       .then(function(resp) {
         return resp.data.data;
@@ -18,7 +18,7 @@ angular.module('betterco.services', [])
   var post = function(comment) {
     return $http({
         method: 'POST',
-        url: '/api/post/',
+        url: '/comment/',
         data: JSON.stringify(comment)
       })
       .then(function(resp) {
@@ -32,4 +32,43 @@ angular.module('betterco.services', [])
     getAll: getAll,
     post: post
   };
-}]);
+}])
+.factory('Auth', function($http, $location, $window) {
+  var login = function(user) {
+    return $http({
+        method: 'POST',
+        url: '/login',
+        data: user
+      })
+      .then(function(resp) {
+        return resp.data;
+      });
+  };
+
+  var register = function(user) {
+    return $http({
+        method: 'POST',
+        url: '/register',
+        data: user
+      })
+      .then(function(resp) {
+        return resp.data;
+      });
+  };
+
+  var isAuth = function() {
+    return !!$window.localStorage.getItem('com.betterco');
+  };
+
+  var signout = function() {
+    $window.localStorage.removeItem('com.betterco');
+    $location.path('/#/login');
+  };
+
+  return {
+    login: login,
+    register: register,
+    signout: signout,
+    isAuth:isAuth
+  };
+});
