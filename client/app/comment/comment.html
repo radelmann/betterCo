@@ -1,8 +1,10 @@
 <div class='container'>
   <div class="row">
-    
-    <div class="items">      
-        <div class="item" ng-repeat='item in data.items'>
+    <div>
+      <h1><span class="fa fa-arrow-left white" ng-click="signOut()"></span></h1>
+    </div>  
+    <div class="comments">      
+        <div class="comment" ng-repeat='item in data.items'>
 
           <div class="font-bold">{{ item.userName }}</div>
           <div>{{ item.message }}</div>
@@ -12,7 +14,7 @@
 
     <div class="compose-button" ng-click="showSubmitForm()" ng-hide='commenting'></div>      
   </div>
-
+  
   <form name='commentForm' ng-submit="submitComment()" ng-show='commenting'>
         
     <textarea class="form-control" id='message' ng-model="data.message" rows=6 placeholder="what do you want to say?" required></textarea>

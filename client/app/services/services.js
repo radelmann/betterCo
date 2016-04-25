@@ -60,7 +60,7 @@ angular.module('betterco.services', [])
     return !!$window.localStorage.getItem('com.betterco');
   };
 
-  var signout = function() {
+  var signOut = function() {
     $window.localStorage.removeItem('com.betterco');
     $location.path('/#/login');
   };
@@ -68,7 +68,7 @@ angular.module('betterco.services', [])
   return {
     login: login,
     register: register,
-    signout: signout,
+    signOut: signOut,
     isAuth:isAuth
   };
 });

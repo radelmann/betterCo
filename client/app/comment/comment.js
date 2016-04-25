@@ -25,6 +25,11 @@ angular.module('betterco.comment', [])
       $scope.showSubmitForm = function() {
         $scope.commenting = true;
       }
+
+      $scope.signOut = function() {
+        Auth.signOut();
+      }            
+
     } else {
       $location.path('/#/login');  
     }

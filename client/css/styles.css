@@ -32,12 +32,12 @@ a {
   width:500px;
 }
 
-.items {
+.comments {
   margin:5px;
   opacity: .9;
 }
 
-.item {
+.comment {
   width:100%;
   background-color: #FFF;
   margin:10px;
@@ -84,4 +84,8 @@ form {
   height:154px;
   margin:auto;
   bottom:100;
+}
+
+.white {
+  color:#FFF;
 }
