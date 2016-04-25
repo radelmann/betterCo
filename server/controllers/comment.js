@@ -35,5 +35,24 @@ module.exports = {
       });
 
     res.status(200);
-  }
+  },
+
+  delete: function(req, res, next) {
+
+    Comment.find({_id:req.params.id})
+      .then(function(comment) {
+        if (!comment) {
+          res.status(404);
+        }
+
+        Comment.remove(function(err,deleted) {
+          if (err) {
+            next(err);
+          }
+          res.status(200);
+          res.json(deleted);
+        });
+      });
+  },
+
 }

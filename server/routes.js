@@ -7,15 +7,25 @@ var cleanInput = function(req, res, next) {
   next();
 }
 
-module.exports = function(app,passport) {
+module.exports = function(app, passport) {
+  var user = require('./controllers/user.js')(passport);
+
   //comment routes
-  app.get('/comment', comment.get);
-  app.post('/comment', cleanInput, comment.post);
+  app.get('/comment', user.isAuth, comment.get);
+  app.post('/comment', user.isAuth, cleanInput, comment.post);
+  app.delete('/comment/:id', user.isAuth, comment.delete);
 
 
   //auth routes
-  var user = require('./controllers/user.js')(passport);
   app.post('/register', cleanInput, user.register);
   app.post('/login', cleanInput, user.login);
-  app.post('/isAuth', user.isAuth);
+
+  app.post('/isAuth', user.isAuth, function(req, res) {
+    res.status(200);
+    res.json({
+      message: "Authorized"
+    });
+  });
+
+  app.delete('/user', cleanInput, user.delete);
 }

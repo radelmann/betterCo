@@ -40,7 +40,6 @@ module.exports = function(passport) {
       // then decode the token, which we end up being the user object
       // check to see if that user exists in the database
       var token = req.headers['x-access-token'] || req.params.token;
-      console.log(token);
       if (!token) {
         next(new Error('No token'));
       } else {
@@ -53,7 +52,7 @@ module.exports = function(passport) {
             if (foundUser) {
               next();
             } else {
-              res.send(401);
+              res.status(401);
               res.json({
                 message: "Not Authorized"
               });
@@ -92,27 +91,35 @@ module.exports = function(passport) {
       })(req, res, next);
     },
 
-    get: function(req, res, next) {
-      var token = req.params.token;
+    delete: function(req, res, next) {
+      // checking to see if the user is authenticated
+      // grab the token in the header, if any
+      // then decode the token, which we end up being the user object
+      // check to see if that user exists in the database
+      var token = req.headers['x-access-token'] || req.params.token;
       var user_Id = jwt.decode(token, 'secret');
+      //decode userid as token, attempt to find user
       User.findOne({
           _id: user_Id.id
         })
-        .then(function(user) {
-          if (!user) {
+        .then(function(foundUser) {
+          if (foundUser) {
+            foundUser.remove(function(err, deleted) {
+              if (err) {
+                next(err);
+              }
+              res.status(200);
+              res.json(deleted);
+            });
+          } else {
             res.status(404);
             res.json({
-              error: 'User not found.'
+              message: "Not Found"
             });
           }
-
-          res.status(200);
-          res.json({
-            user: user
-          });
         })
-        .catch(function(err) {
-          next(err);
+        .catch(function(error) {
+          next(error);
         });
     }
   }
