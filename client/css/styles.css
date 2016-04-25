@@ -76,14 +76,20 @@ form {
   background-color: purple;
 }
 
+.compose-button-container {
+  position: fixed;
+  bottom: 50px;
+  width: 100%;
+}
+
 .compose-button {
   background:url(../assets/btn_compose@2x.png) no-repeat;
-  cursor:pointer;
-  border:none;
-  width:154px;
-  height:154px;
+  background-size:cover;
+  cursor: pointer;
+  border: none;
+  width: 100px;
+  height: 100px;
   margin:auto;
-  bottom:100;
 }
 
 .white {
