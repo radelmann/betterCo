@@ -1,5 +1,6 @@
 var User = require('../models/user.js');
 var jwt = require('jwt-simple');
+var env = require('../config/env');
 
 module.exports = function(passport) {
   return {
@@ -22,7 +23,7 @@ module.exports = function(passport) {
         //encode user id as token
         var token = jwt.encode({
           id: user._id
-        }, 'secret');
+        }, env.session_secret);
 
         res.status(200);
 
@@ -43,7 +44,7 @@ module.exports = function(passport) {
       if (!token) {
         next(new Error('No token'));
       } else {
-        var user_Id = jwt.decode(token, 'secret');
+        var user_Id = jwt.decode(token, env.session_secret);
         //decode userid as token, attempt to find user
         User.findOne({
             _id: user_Id.id
@@ -83,7 +84,7 @@ module.exports = function(passport) {
         //encode user id as token
         var token = jwt.encode({
           id: user._id
-        }, 'secret');
+        }, env.session_secret);
         res.status(200);
         res.json({
           token: token
@@ -97,7 +98,7 @@ module.exports = function(passport) {
       // then decode the token, which we end up being the user object
       // check to see if that user exists in the database
       var token = req.headers['x-access-token'] || req.params.token;
-      var user_Id = jwt.decode(token, 'secret');
+      var user_Id = jwt.decode(token, env.session_secret);
       //decode userid as token, attempt to find user
       User.findOne({
           _id: user_Id.id

@@ -16,8 +16,6 @@ module.exports = {
   },
 
   post: function(req, res, next) {
-    //santize user input
-    
     var comment = new Comment({
       message :  req.body.message,
       userName : req.body.userName
@@ -38,7 +36,6 @@ module.exports = {
   },
 
   delete: function(req, res, next) {
-
     Comment.find({_id:req.params.id})
       .then(function(comment) {
         if (!comment) {
@@ -53,6 +50,5 @@ module.exports = {
           res.json(deleted);
         });
       });
-  },
-
+  }
 }

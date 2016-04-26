@@ -1,7 +1,6 @@
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user.js');
 var config = require('../config/env.js');
-// var mail = require('../config/mail.js');
 
 module.exports = function(passport) {
   passport.use('local-register', new LocalStrategy({
@@ -31,10 +30,8 @@ module.exports = function(passport) {
                 if (err) {
                   done(err);
                 }
-                //send welcome email
-                // mail.sendWelcome(saved.email, saved.name, function(err) {
+                
                 return done(err, saved);
-                // });
               });
 
             }
