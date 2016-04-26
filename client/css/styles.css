@@ -48,7 +48,7 @@ a {
 form {
   margin-top:5px;
   background-color: #FFF;
-  width:490px;
+  /*max-width:450px;*/
 }
 
 .form {
@@ -57,7 +57,7 @@ form {
   padding:5px;
   border: #DDD thin solid;
   border-radius: 5px;  
-  opacity: .9;
+  /*opacity: .9;*/
 }
 
 .form-control {

@@ -1,5 +1,5 @@
 angular.module('betterco.comment', [])
-  .controller('CommentController', ['$scope', 'ModalService', 'Comment', 'Auth', '$location', function($scope, ModalService, Comment, Auth, $location) {
+  .controller('CommentController', ['$scope', '$window', 'ModalService', 'Comment', 'Auth', '$location', function($scope, $window, ModalService, Comment, Auth, $location) {
     if (Auth.isAuth()) {
       $scope.data = {};
       $scope.data.items = [];
@@ -10,13 +10,11 @@ angular.module('betterco.comment', [])
 
       $scope.submitComment = function(message) {
         var commentData = {};
-        commentData.userName = "radelmann";//to do get from local storage
+        commentData.userName = $window.localStorage.getItem('com.betterco.user');
         commentData.message = message;
 
         Comment.post(commentData).then(function(data) {
           $scope.data.items.push(data);
-          $scope.commenting = false;
-          $scope.data.message = "";
         });
       };
 

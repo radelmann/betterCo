@@ -57,11 +57,12 @@ angular.module('betterco.services', [])
   };
 
   var isAuth = function() {
-    return !!$window.localStorage.getItem('com.betterco');
+    return !!$window.localStorage.getItem('com.betterco.token');
   };
 
   var signOut = function() {
-    $window.localStorage.removeItem('com.betterco');
+    $window.localStorage.removeItem('com.betterco.token');
+    $window.localStorage.removeItem('com.betterco.user');
     $location.path('/#/login');
   };
 

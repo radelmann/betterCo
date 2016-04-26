@@ -9,7 +9,8 @@ angular.module('betterco.auth', [])
   $scope.login = function() {
     Auth.login($scope.user)
       .then(function(data) {
-        $window.localStorage.setItem('com.betterco', data.token);
+        $window.localStorage.setItem('com.betterco.token', data.token);
+        $window.localStorage.setItem('com.betterco.user', $scope.user.email);
         $location.path('/comments');
       })
       .catch(function(error) {
@@ -20,7 +21,8 @@ angular.module('betterco.auth', [])
   $scope.register = function() {
     Auth.register($scope.user)
       .then(function(data) {
-        $window.localStorage.setItem('com.betterco', data.token);
+        $window.localStorage.setItem('com.betterco.token', data.token);
+        $window.localStorage.setItem('com.betterco.user', $scope.user.email);
         $location.path('/comments');
       })
       .catch(function(error) {
