@@ -6,6 +6,6 @@ npm install
 npm test
 npm start
 ```
-Point your browser to httt://localhost:3000
+Point your browser to http://localhost:3000
 
 Live version can be demo'd at: http://betterco.radelmann.io/
