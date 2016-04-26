@@ -3,6 +3,7 @@
 To install/run locally, clone repo, start mongo and create db -> "betterco" 
 ```
 npm install
+bower install
 npm test
 npm start
 ```
