@@ -24,10 +24,6 @@ h1 {
   font-family: bc-bold;
 }
 
-.font-bold {
-  font-family: bc-bold;
-}
-
 p {
   margin-top: 10px;
 }
@@ -39,7 +35,20 @@ a {
 
 a:hover {
   color:#FFF;
-  }
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+form {
+  margin-top:5px;
+  background-color: transparent;
+}
+
+.font-bold {
+  font-family: bc-bold;
+}
 
 .container {
   max-width:500px;
@@ -62,19 +71,9 @@ a:hover {
   border-radius: 5px;
 }
 
-form {
-  margin-top:5px;
-  background-color: transparent;
-  /*max-width:450px;*/
-}
-
 .form {
   margin-top: 100px;
-  /*background-color: #FFF;*/
   padding:5px;
-  /*border: #DDD thin solid;
-  border-radius: 5px;  */
-  /*opacity: .9;*/
 }
 
 .form-control {
@@ -134,8 +133,4 @@ form {
   background-color: #FFF;
   border:thin solid #FFF;
   border-radius: 5px;
-}
-
-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
