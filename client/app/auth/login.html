@@ -1,5 +1,6 @@
-<div id='signin' class="container form">
-  <h1><span class="fa fa-sign-in"></span> Login</h1>
+<div id='signin' class="container form center">
+  <h1 class="white">Triangle</h1>
+  <p class="white">Chat with interesting people in your city</p>
   <div class='clearfix'>
     <div class="alert alert-danger" ng-model="error" ng-hide="error === ''">
       {{error}}
@@ -9,14 +10,10 @@
     </div>
     <form name="signinForm" ng-submit='login()'>
       <div class="form-group">
-        <label>Email</label>
-        <input type="email" class="form-control" ng-model='user.email' required>
+        <input type="email" placeholder="Email" class="form-control" ng-model='user.email' required>
+        <input type="password" placeholder="Password" class="form-control" ng-model='user.password' required>
       </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" class="form-control" ng-model='user.password' required>
-      </div>
-      <button type="submit" class="btn btn-primary btn-lg pull-right">Login</button>
+      <button type="submit" class="btn btn-primary btn-lg pull-right">SIGN IN</button>
     </form>
   </div>
   <p><a href="/#register">Create an account</a></p>
