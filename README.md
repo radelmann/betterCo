@@ -1,4 +1,4 @@
-## BetterCompany TakeHome assigment
+## BetterCompany Take Home assigment
 
 To install/run locally, clone repo, start mongo and create db -> "betterco" 
 ```
