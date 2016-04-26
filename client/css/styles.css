@@ -26,6 +26,7 @@ h1 {
 
 p {
   margin-top: 10px;
+  font-size: 20px;
 }
 
 a {
@@ -71,7 +72,7 @@ form {
 }
 
 .form {
-  margin-top: 100px;
+  margin-top: 80px;
   padding:5px;
 }
 
@@ -97,8 +98,8 @@ form {
 }
 
 .compose-button {
-  background:url(../assets/btn_compose@2x.png) no-repeat;
-  background-size:cover;
+  background: url(../assets/btn_compose@2x.png) no-repeat;
+  background-size: cover;
   cursor: pointer;
   border: none;
   width: 100px;
@@ -110,6 +111,13 @@ form {
   color:#FFF;
 }
 
+.grey {
+  color:#8d8a86;
+}
+
+.message {
+  margin-top: 8px;
+}
 .modal-dialog {
   max-width: 450px;
 }
@@ -132,4 +140,8 @@ form {
   background-color: #FFF;
   border:thin solid #FFF;
   border-radius: 5px;
+}
+
+.fa-arrow-left {
+  font-size: 26px;
 }
