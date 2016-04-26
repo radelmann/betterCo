@@ -11,14 +11,16 @@ module.exports = {
         }
 
         res.status(200);
-        res.json({'data':comments});
+        res.json({
+          'data': comments
+        });
       });
   },
 
   post: function(req, res, next) {
     var comment = new Comment({
-      message :  req.body.message,
-      userName : req.body.userName
+      message: req.body.message,
+      userName: req.body.userName
     });
 
     comment.save(function(err, saved) {
@@ -36,19 +38,16 @@ module.exports = {
   },
 
   delete: function(req, res, next) {
-    Comment.find({_id:req.params.id})
-      .then(function(comment) {
-        if (!comment) {
+    Comment.remove({
+        _id: req.params.id
+      })
+      .then(function(deleted) {
+        if (!deleted) {
           res.status(404);
+          return;
         }
-
-        Comment.remove(function(err,deleted) {
-          if (err) {
-            next(err);
-          }
-          res.status(200);
-          res.json(deleted);
-        });
+        res.status(200);
+        res.json(deleted);
       });
   }
 }
