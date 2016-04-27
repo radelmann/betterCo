@@ -65,7 +65,8 @@ form {
 
 .comment {
   background-color: #FFF;
-  margin:10px;
+  margin-top:10px;
+  margin-bottom:10px;
   padding:5px;
   border: #DDD thin solid;
   border-radius: 5px;
