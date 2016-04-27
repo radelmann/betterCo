@@ -14,9 +14,7 @@ module.exports = function(passport) {
 
         if (!user) {
           res.status(401);
-          res.json({
-            message: info
-          });
+          res.json(info);
         }
 
         //user has authenticated correctly, create a JWT token 
@@ -75,9 +73,7 @@ module.exports = function(passport) {
 
         if (!user) {
           res.status(401);
-          res.json({
-            message: info
-          });
+          res.json(info);
         }
 
         //user has authenticated correctly, create a JWT token 
