@@ -1,9 +1,9 @@
 <div class='container'>
   <div class="row">
-    <div>
-      <h1><span class="fa fa-arrow-left white" ng-click="signOut()"></span></h1>
-    </div>
     <div class="comments">
+      <div>
+        <h1><span class="fa fa-arrow-left white" ng-click="signOut()"></span></h1>
+      </div>
       <div class="comment" ng-repeat='item in data.items'>
         <div class="font-bold">{{ item.userName }}</div>
         <div class="message grey">{{ item.message }}</div>
