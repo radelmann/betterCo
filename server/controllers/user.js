@@ -15,6 +15,7 @@ module.exports = function(passport) {
         if (!user) {
           res.status(401);
           res.json(info);
+          return;
         }
 
         //user has authenticated correctly, create a JWT token 
@@ -55,6 +56,7 @@ module.exports = function(passport) {
               res.json({
                 message: "Not Authorized"
               });
+              return;
             }
           })
           .catch(function(error) {
@@ -74,6 +76,7 @@ module.exports = function(passport) {
         if (!user) {
           res.status(401);
           res.json(info);
+          return;
         }
 
         //user has authenticated correctly, create a JWT token 
