@@ -14,7 +14,7 @@ module.exports = function(passport) {
 
         if (!user) {
           res.status(401);
-          res.json(info);
+          res.json(info.message ? info : { message: info });
           return;
         }
 
@@ -75,7 +75,7 @@ module.exports = function(passport) {
 
         if (!user) {
           res.status(401);
-          res.json(info);
+          res.json(info.message ? info : { message: info });
           return;
         }
 
